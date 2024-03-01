@@ -1,0 +1,153 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    font-size: x-large;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-size: small;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: 3fr 1fr; /* 3:1 ration between content and screen? */
+    gap: 20px;
+    padding: 20px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f3f3f3;
+}
+
+/* Article Styles */
+
+.article-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    font-size: medium;
+}
+
+.article-content {
+    display: grid;
+    grid-template-columns: 1fr; /* Single Column Layout */
+    gap: 20px;
+    padding: 20px;
+}
+
+/* SideBar */
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.advertisement {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+/* Photo Gallery */
+
+.gallery-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    font-size: medium;
+}
+
+.image-container {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.visible {
+    opacity: 1;
+}
+
+.gallery-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    align-content: bottom;
+}
+
+.section-title {
+    padding: 20px;
+    font-size: medium;
+}
+
+/* Hamburger Menu Style */
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+/*NAV*/
+
+nav {
+    display: flex;
+    justify-content: center; /* Center Navigation Items */
+    padding: 10px 0;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px; /* Adjust gap between navigation items */
+}
+
+/* Hide regular navigation items on smaller screens */
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Show Hamburger Menu */
+    }
+
+    nav ul {
+        flex-direction: column;
+        display: none; /* Initially Hide Navigation Items */
+    }
+
+    /* When clicking the hamburger menu, use javascript to toggle this class to display the items */
+    nav ul.active {
+        display: flex; /* Diaply navigation items in a column */
+    }
+
+}

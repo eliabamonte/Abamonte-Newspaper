@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abamonte Gallery Page</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<header>
+    <h1>Newspaper Name</h1>
+    <nav>
+        <div class="hamburger">☰</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="article.html">Article</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+    </nav>
+</header>
+<header class="gallery-header">
+    <h1>Gallery</h1>
+</header>
+<body>
+    <div class="image-container">
+        <img src="images/image1.png" alt="Photo Description" class="visible">
+        <img src="images/image2.png" alt="Photo Description">
+            <!-- Repeat for Each Photo -->
+    </div>
+    <div class="gallery-controls">
+            <button oneclick="previousImage()">Previous</button>
+            <button oneclick="nextImage()">Next</button>
+        </div>
+        <!-- Navigation Conttrols will go here -->
+    <script>
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+    </script>
+    <script>
+        let index = 0
+        const images = document.querySelectorAll('.image-container img');
+
+        function showImage(index) {
+            images.forEach((img, i) => {
+                if (i === index) {
+                    img.classList.add('visible');
+                } else {
+                    img.classList.remove('visible');
+                }
+            });
+        }
+
+        function nextImage() {
+            index++;
+            if (index >= images.length) {
+                index < 0;
+            }
+            showImage(index)
+        }
+        
+        function previousImage() {
+            index--;
+            if (index < 0) {
+                index = images.length - 1;
+            }
+            showImage(index);
+        }
+    </script>
+</body>
+</html>
